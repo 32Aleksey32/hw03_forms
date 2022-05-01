@@ -26,43 +26,50 @@ urlpatterns = [
     # Выйти
     path(
         'logout/',
-        LogoutView.as_view(template_name='users/logged_out.html'),
+        LogoutView.as_view(
+            template_name='users/logged_out.html'),
         name='logout'
     ),
 
     # Смена пароля
     path('password_change/',
-         PasswordChangeView.as_view(template_name='users/password_change_form.html'),
+         PasswordChangeView.as_view(
+             template_name='users/password_change_form.html'),
          name='password_change_form'
          ),
 
     # Сообщение об успешном изменении пароля
     path('password_change/done/',
-         PasswordChangeDoneView.as_view(template_name='users/password_change_done.html'),
+         PasswordChangeDoneView.as_view(
+             template_name='users/password_change_done.html'),
          name='password_change_done'
          ),
 
     # Восстановление пароля через email
     path("password_reset/",
-         PasswordResetView.as_view(template_name="users/password_reset_form.html"),
+         PasswordResetView.as_view(
+             template_name="users/password_reset_form.html"),
          name="password_reset_form",
          ),
 
     # Сообщение об успешном восстановлении пароля
     path('reset/done/',
-         PasswordResetCompleteView.as_view(template_name='users/password_reset_complete.html'),
+         PasswordResetCompleteView.as_view(
+             template_name='users/password_reset_complete.html'),
          name='password_reset_complete'
          ),
 
     # Вход по ссылке для восстановления пароля
     path('reset/<uidb64>/<token>/',
-         PasswordResetConfirmView.as_view(template_name='users/password_reset_confirm'),
+         PasswordResetConfirmView.as_view(
+             template_name='users/password_reset_confirm'),
          name='password_reset_confirm'
          ),
 
     # Сообщение об отправке ссылки для восстановления пароля
     path('password_reset/done/',
-         PasswordResetDoneView.as_view(template_name='users/password_reset_done.html'),
+         PasswordResetDoneView.as_view(
+             template_name='users/password_reset_done.html'),
          name='password_reset_done'
          ),
 
