@@ -14,7 +14,7 @@ def paginate_page(queryset, request):
 
 def index(request):
     posts = Post.objects.all().order_by('-pub_date')
-    #context = paginate_page(posts, request)
+    # context = paginate_page(posts, request)
     page_obj = paginate_page(posts, request)
     context = {'page_obj': page_obj}
     return render(request, 'posts/index.html', context)
@@ -25,7 +25,7 @@ def group_posts(request, slug):
     posts = Post.objects.filter(group=group).order_by('-pub_date')
     page_obj = paginate_page(posts, request)
     context = {'group': group, 'page_obj': page_obj}
-    #context.update(paginate_page(posts, request))
+    # context.update(paginate_page(posts, request))
     return render(request, 'posts/group_list.html', context)
 
 
@@ -34,7 +34,7 @@ def profile(request, username):
     posts = author.posts.all().order_by('-pub_date')
     page_obj = paginate_page(posts, request)
     context = {"author": author, 'page_obj': page_obj}
-    #context.update(paginate_page(posts, request))
+    # context.update(paginate_page(posts, request))
     return render(request, 'posts/profile.html', context)
 
 
