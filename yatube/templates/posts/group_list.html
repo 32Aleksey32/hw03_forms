@@ -7,7 +7,7 @@
 {% block content %}
   <h1>{{ group.title }}</h1>
   <p>{{ group.description }}</p>
-{% for post in posts %}
+{% for post in page_obj %}
 <article>
   <ul>
     <li>Автор: {{ post.author.get_full_name }} </li>
@@ -18,4 +18,5 @@
 </article>
 {% if not forloop.last %}<hr>{% endif %}
 {% endfor %}
+{% include 'posts/includes/paginator.html' %}
 {% endblock %}

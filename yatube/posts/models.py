@@ -14,7 +14,10 @@ class Group(models.Model):
 
 
 class Post(models.Model):
-    text = models.TextField('Текст поста')
+    text = models.TextField(
+        'Текст поста',
+        help_text='Введите текст поста'
+    )
     pub_date = models.DateTimeField('Дата публикации', auto_now_add=True)
     author = models.ForeignKey(
         User,
@@ -28,6 +31,7 @@ class Post(models.Model):
         null=True, blank=True,
         related_name='posts',
         verbose_name='Группа',
+        help_text='Выберите группу',
     )
 
     def __str__(self):
