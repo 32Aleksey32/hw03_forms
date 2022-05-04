@@ -22,7 +22,7 @@
               </div>
               <div class="card-body">
                 {% if is_edit %}
-                  <form method="post" action="{% url 'posts:post_edit' post_id %}">{% csrf_token %}
+                  <form method="post" action="{% url 'posts:post_edit' post.pk %}">{% csrf_token %}
                 {% else %}
                   <form method="post" action="{% url 'posts:post_create' %}">{% csrf_token %}
                 {% endif %}
